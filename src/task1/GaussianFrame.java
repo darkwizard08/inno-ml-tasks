@@ -22,7 +22,7 @@ public class GaussianFrame {
 
 	public GaussianFrame() {
 		JFrame frame = new JFrame("Gaussian filter");
-		frame.setSize(WIDTH, 40 + HEIGHT);
+		frame.setSize(WIDTH, HEIGHT);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		frame.setLayout(null);
@@ -31,7 +31,7 @@ public class GaussianFrame {
 
 		try {
 			BufferedImage img = ImageIO.read(new File("contrast.jpg"));
-			gdp = new GaussDisplayPanel(img, WIDTH / 2, HEIGHT / 2);
+			gdp = new GaussDisplayPanel(img, WIDTH / 2, (HEIGHT - 40) / 2);
 			frame.add(gdp);
 			gdp.setBounds(0, 40, WIDTH, HEIGHT);
 
@@ -43,7 +43,7 @@ public class GaussianFrame {
 	public JPanel createControlPanel() {
 		JPanel control = new JPanel();
 		control.setLayout(new BoxLayout(control, BoxLayout.Y_AXIS));
-		control.setSize(WIDTH, 50);
+		control.setSize(WIDTH, 40);
 
 		// adding sigma controller
 		JLabel sigmaLabel = new JLabel("Sigma");
